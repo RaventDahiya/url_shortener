@@ -1,0 +1,80 @@
+{
+  "info": {
+    "_postman_id": "0f1b1ffd-0d3f-41ae-8440-bd55816918e3",
+    "name": "url_shortner",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "44650467",
+    "_collection_link": "https://go.postman.co/collection/44650467-0f1b1ffd-0d3f-41ae-8440-bd55816918e3?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "generateShortId",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "originalUrl",
+              "value": "https://github.com/RaventDahiya"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8001/url",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8001",
+          "path": [
+            "url"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "redirectToOriginalUrl",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8001/url/Gp603ZGK",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8001",
+          "path": [
+            "url",
+            "Gp603ZGK"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getAnalytics",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8001/url/analytics/Gp603ZGK",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8001",
+          "path": [
+            "url",
+            "analytics",
+            "Gp603ZGK"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
