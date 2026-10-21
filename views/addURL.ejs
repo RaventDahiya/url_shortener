@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>add new URL</title>
+  </head>
+  <body>
+    <h1>Add a New URL</h1>
+    <form action="/url" method="POST" enctype="application/x-www-form-urlencoded">
+      <label for="originalUrl">Original URL:</label>
+      <input
+        id="originalUrl"
+        type="url"
+        name="originalUrl"
+        placeholder="https://example.com"
+        required
+      />
+      <button type="submit">Generate Shorten URL</button>
+    </form>
+  </body>
+</html>

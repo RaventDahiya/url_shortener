@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 2rem auto;
+        max-width: 1000px;
+        padding: 0 1rem;
+      }
+
+      table {
+        border-collapse: collapse;
+        margin-top: 1.5rem;
+        width: 100%;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 0.75rem;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        background-color: #f4f4f4;
+      }
+
+      a {
+        overflow-wrap: anywhere;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to the URL Shortener</h1>
+    <% if (urls && urls.length > 0) { %>
+      <h2>All URLs</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Original URL</th>
+            <th>Short URL</th>
+            <th>Click Count</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% urls.forEach(url => { %>
+          <tr>
+            <td>
+              <a href="<%= url.redirectUrl %>" target="_blank" rel="noopener noreferrer">
+                <%= url.redirectUrl %>
+              </a>
+            </td>
+            <td>
+              <a href="/url/<%= url.shortId %>">
+                /url/<%= url.shortId %>
+              </a>
+            </td>
+            <td><%= url.visitHistory.length %></td>
+          </tr>
+        <% }); %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <p>No URLs found.</p>
+    <% } %>
+  </body>
+</html>
