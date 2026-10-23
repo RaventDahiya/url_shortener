@@ -11,6 +11,7 @@ const generateShortId = async (req, res) => {
   await Url.create({
     shortId,
     redirectUrl: originalUrl,
+    createdBy: req.user._id,
     visitHistory: [],
   });
 
