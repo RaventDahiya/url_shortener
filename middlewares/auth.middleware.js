@@ -6,6 +6,7 @@ const restrictToLoggedInUserOnly = (req, res, next) => {
   }
   const user = getUser(sessionId);
   if (!user) {
+    res.clearCookie("uid");
     return res.redirect("/login");
   }
   req.user = user;
@@ -15,6 +16,9 @@ const restrictToLoggedInUserOnly = (req, res, next) => {
 const checkAuth = async (req, res, next) => {
   const sessionId = req.cookies.uid;
   const user = getUser(sessionId);
+  if (!user && sessionId) {
+    res.clearCookie("uid");
+  }
   req.user = user;
   next();
 };
